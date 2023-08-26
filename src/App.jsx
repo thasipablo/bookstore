@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationComponent from './components/NavigationComponent';
 import BookListComponent from './components/BookListComponent';
 import BookFormComponent from './components/BookFormComponent';
+import Categories from './components/Categories';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -24,12 +25,6 @@ const Home = () => {
     </div>
   );
 };
-
-const Categories = () => (
-  <div>
-    <h1>Categories Page</h1>
-  </div>
-);
 
 const App = () => (
   <Router>
