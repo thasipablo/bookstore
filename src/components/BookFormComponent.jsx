@@ -18,19 +18,25 @@ const BookFormComponent = ({ onAddBook }) => {
     <div className="book-form">
       <h2>Add New Book</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-        <button type="submit">Add Book</button>
+        <div>
+          <input
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="Author"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+          />
+        </div>
+        <div>
+          <button type="submit">Add Book</button>
+        </div>
       </form>
     </div>
   );
