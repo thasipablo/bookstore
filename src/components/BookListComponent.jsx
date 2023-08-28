@@ -4,7 +4,6 @@ import BookComponent from './BookComponent';
 
 const BookListComponent = () => {
   const books = useSelector((state) => state.book);
-  console.log(books);
 
   return (
     <div className="book-list">
