@@ -9,7 +9,7 @@ const BookListComponent = () => {
     <div className="book-list">
       <h2>Books</h2>
       {books.map((book) => (
-        <BookComponent key={book.id} book={book} />
+        <BookComponent key={book.item_id} book={book} />
       ))}
     </div>
   );
