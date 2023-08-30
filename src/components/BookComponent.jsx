@@ -9,10 +9,14 @@ const BookComponent = ({ book }) => {
     <div className="book">
       <h3>{book.title}</h3>
       <p>
-        Author:
-        {book.author}
+        <span>Author: </span>
+        <span>{book.author}</span>
       </p>
-      <button type="button" onClick={() => dispatch(removeBook(book.item_id))}>
+      <p>
+        <span>Category: </span>
+        <span>{book.category}</span>
+      </p>
+      <button type="button" onClick={() => dispatch(removeBook(book.title))}>
         Delete
       </button>
     </div>
@@ -23,7 +27,7 @@ BookComponent.propTypes = {
   book: PropTypes.shape({
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    item_id: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
 };
 
