@@ -92,17 +92,31 @@ export const booksSlice = createSlice({
       state.isLoading = false;
       state.error = action.error.message;
     });
+
     builder.addCase(addBook.pending, (state) => {
       state.isLoading = true;
     });
     builder.addCase(addBook.fulfilled, (state, action) => {
       state.isLoading = false;
       const response = JSON.parse(action.payload);
-      console.log(response.book);
-      console.log('state:', state.books);
       state.books = [...state.books, response.book];
     });
     builder.addCase(addBook.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.error.message;
+    });
+
+    builder.addCase(removeBook.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(removeBook.fulfilled, (state, action) => {
+      state.isLoading = false;
+      const response = JSON.parse(action.payload);
+      state.books = state.books.filter(
+        (book) => book.item_id !== response.itemId,
+      );
+    });
+    builder.addCase(removeBook.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.error.message;
     });
