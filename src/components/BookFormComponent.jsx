@@ -12,7 +12,6 @@ const BookFormComponent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const itemId = uuidv4();
-    console.log(itemId);
     if (title && author) {
       dispatch(addBook({ title, author, category, item_id: itemId }));
       setTitle('');
