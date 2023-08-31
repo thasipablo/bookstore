@@ -5,15 +5,7 @@ import { fetchBooks } from '../redux/books/booksSlice';
 
 const BookListComponent = () => {
   const dispatch = useDispatch();
-  const bookStore = useSelector((state) => state.book);
-  const keys = Object.keys(bookStore.books);
-
-  let books = [];
-
-  // build books array from bookStore object
-  keys.forEach((key) => {
-    books = [...books, { ...bookStore.books[key][0], item_id: key }];
-  });
+  const booksStore = useSelector((state) => state.book);
 
   useEffect(() => {
     dispatch(fetchBooks());
@@ -22,7 +14,7 @@ const BookListComponent = () => {
   return (
     <div className="book-list">
       <h2>Books</h2>
-      {books.map((book) => (
+      {booksStore.books.map((book) => (
         <BookComponent key={book.item_id} book={book} />
       ))}
     </div>

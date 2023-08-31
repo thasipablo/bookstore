@@ -15,7 +15,17 @@ export const fetchBooks = createAsyncThunk(
   async (thunkAPI) => {
     try {
       const res = await axios(API_URI);
-      return res.data;
+      const booksData = await res.data;
+      const keys = Object.keys(booksData);
+
+      let books = [];
+
+      // build books array from bookStore object
+      keys.forEach((key) => {
+        books = [...books, { ...booksData[key][0], item_id: key }];
+      });
+
+      return books;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         'An error ocurred while trying to fetch books',
