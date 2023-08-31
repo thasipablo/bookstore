@@ -3,12 +3,6 @@ import axios from 'axios';
 
 const KEY = 'YYwhFWHSLwYTiulPV1gz';
 const API_URI = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${KEY}/books`;
-// {
-//   item_id: 'item1',
-//   title: 'The Great Gatsby',
-//   author: 'John Smith',
-//   category: 'Fiction',
-// }
 
 const initialState = {
   books: [],
@@ -16,31 +10,66 @@ const initialState = {
   error: '',
 };
 
-export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
-  const res = await axios(API_URI);
-  const books = await res.data;
-  return books;
-});
+export const fetchBooks = createAsyncThunk(
+  'books/fetchBooks',
+  async (thunkAPI) => {
+    try {
+      const res = await axios(API_URI);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        'An error ocurred while trying to fetch books',
+      );
+    }
+  },
+);
+
+export const removeBook = createAsyncThunk(
+  'book/removeBook',
+  async (itemId, thunkAPI) => {
+    try {
+      const resp = await axios.delete(
+        `${API_URI}/${itemId}`,
+        {
+          itemId,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        },
+      );
+      return JSON.stringify({ message: resp, itemId });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        'An error ocurred while trying to remove a book',
+      );
+    }
+  },
+);
+
+export const addBook = createAsyncThunk(
+  'books/addBook',
+  async (newBook, thunkAPI) => {
+    try {
+      const res = await axios.post(API_URI, newBook, {
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+      return JSON.stringify({ message: res, book: newBook });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        'An error ocurred while trying to add a book',
+      );
+    }
+  },
+);
 
 export const booksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {
-    addBook: (state, action) => {
-      const newBook = {
-        item_id: `item${state.length + 1}`,
-        title: action.payload.title,
-        author: action.payload.author,
-      };
-      state.push(newBook);
-    },
-    removeBook: (state, action) => {
-      const filteredBooks = state.filter(
-        (book) => book.item_id !== action.payload,
-      );
-      return filteredBooks;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchBooks.pending, (state) => {
       state.isLoading = true;
@@ -55,5 +84,3 @@ export const booksSlice = createSlice({
     });
   },
 });
-
-export const { addBook, removeBook } = booksSlice.actions;
