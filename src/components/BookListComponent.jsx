@@ -13,7 +13,6 @@ const BookListComponent = () => {
 
   return (
     <div className="book-list">
-      <h2>Books</h2>
       {booksStore.books.map((book) => (
         <BookComponent key={book.item_id} book={book} />
       ))}

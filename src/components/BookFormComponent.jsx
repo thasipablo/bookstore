@@ -29,14 +29,15 @@ const BookFormComponent = () => {
 
   return (
     <div className="book-form">
-      <h2>Add New Book</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="form-title">Add New Book</h2>
+      <form className="form" onSubmit={handleSubmit}>
         <div>
           <input
             type="text"
             placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            required
           />
         </div>
         <div>
@@ -45,6 +46,7 @@ const BookFormComponent = () => {
             placeholder="Author"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
+            required
           />
         </div>
         <div>
@@ -53,11 +55,12 @@ const BookFormComponent = () => {
             placeholder="Category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
+            required
           />
         </div>
-        <p>
+        <div>
           <button type="submit">Add Book</button>
-        </p>
+        </div>
       </form>
     </div>
   );
