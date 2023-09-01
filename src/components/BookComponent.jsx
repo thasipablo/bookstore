@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/booksSlice';
+import progressImg from '../assets/img/progress.png';
 
 const BookComponent = ({ book }) => {
   const dispatch = useDispatch();
@@ -24,15 +25,17 @@ const BookComponent = ({ book }) => {
       </div>
       <div className="right">
         <div className="progress">
-          <div className="progress-chart">chart</div>
-          <div className="progress-pourcentage">
-            <div>65%</div>
-            <div>In progress</div>
+          <div className="progress-chart">
+            <img src={progressImg} alt="progress chart" />
+          </div>
+          <div>
+            <div className="progress-pourcentage">65%</div>
+            <div className="progress-status">In progress</div>
           </div>
         </div>
-        <div className="infs">
-          <div className="current-chapter">CUURENT CHAPTER</div>
-          <div className="current-chapter">Chapter 17</div>
+        <div className="infos">
+          <div className="current-chapter">CURRENT CHAPTER</div>
+          <div className="current-lesson">Chapter 17</div>
           <button type="button">UPDATE PROGRESS</button>
         </div>
       </div>

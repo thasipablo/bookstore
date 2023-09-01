@@ -9,7 +9,7 @@
 
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat, sans-serif', sans-serif;
   background-color: var(--white);
 }
 
@@ -25,7 +25,7 @@ h3 {
 }
 
 button {
-  font-family: RobotoSlab;
+  font-family: RobotoSlab, serif;
   border: none;
   background-color: transparent;
   padding: 0;
@@ -56,7 +56,7 @@ button {
 
 .brand {
   margin: 0.375rem 2.938rem 0.125rem 0;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-size: 1.875rem;
   font-weight: bold;
   font-stretch: normal;
@@ -68,7 +68,7 @@ button {
 
 .nav-link {
   margin: 1.125rem 2.563rem 0.688rem 0;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-size: 0.813rem;
   font-weight: normal;
   font-stretch: normal;
@@ -117,14 +117,14 @@ button {
 
 .book .category {
   opacity: 0.5;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-size: 0.875rem;
   font-weight: bold;
   color: var(--black-two);
 }
 
 .book .title {
-  font-family: RobotoSlab;
+  font-family: RobotoSlab, serif;
   font-size: 1.375rem;
   font-weight: bold;
   letter-spacing: -0.2px;
@@ -133,14 +133,14 @@ button {
 }
 
 .book .author {
-  font-family: RobotoSlab;
+  font-family: RobotoSlab, serif;
   font-size: 0.875rem;
   font-weight: 300;
   color: var(--azure-two);
 }
 
 .book .action-btns {
-  font-family: RobotoSlab;
+  font-family: RobotoSlab, serif;
   font-size: 0.875rem;
   font-weight: 300;
   display: flex;
@@ -149,7 +149,7 @@ button {
   margin-top: 1rem;
 }
 
-.book .action-btns button{
+.book .action-btns button {
   padding: 0.5rem 0;
   font-size: 0.875rem;
   font-weight: 300;
@@ -163,8 +163,51 @@ button {
   background-color: var(--white-three);
 }
 
-.book .right .progress {
-  gap: 1rem;
+.book .progress {
+  gap: 2rem;
   display: flex;
   align-items: center;
+}
+
+.book .progress-pourcentage {
+  font-family: Montserrat, sans-serif;
+  font-size: 2rem;
+  color: var(--black-two);
+}
+
+.book .progress-status {
+  opacity: 0.5;
+  font-family: Montserrat, sans-serif;
+  color: var(--black-two);
+}
+
+.book .current-chapter {
+  opacity: 0.5;
+  font-family: RobotoSlab, serif;
+  font-size: 0.813rem;
+  font-weight: 300;
+  color: var(--black-two);
+}
+
+.book .current-lesson {
+  font-family: RobotoSlab, serif;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: -0.4px;
+  color: var(--black-two);
+  padding-top: 0.44rem;
+}
+
+.book .infos button {
+  color: var(--white-two);
+  padding: 0.438rem 1.188rem;
+  border-radius: 3px;
+  margin-top: 1.43rem;
+  background-color: var(--azure);
+  transition: all 0.25s ease-in-out;
+}
+
+.book .infos button:hover {
+  background-color: var(--azure-two);
+  box-shadow: 8px 8px 24px var(--white-three);
 }
