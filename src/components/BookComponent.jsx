@@ -33,6 +33,7 @@ const BookComponent = ({ book }) => {
             <div className="progress-status">In progress</div>
           </div>
         </div>
+        <div className="separator" />
         <div className="infos">
           <div className="current-chapter">CURRENT CHAPTER</div>
           <div className="current-lesson">Chapter 17</div>

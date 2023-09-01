@@ -7,8 +7,13 @@
   --white-three: #e8e8e8;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  scroll-behavior: smooth;
   font-family: 'Montserrat, sans-serif', sans-serif;
   background-color: var(--white);
 }
@@ -32,6 +37,20 @@ button {
   cursor: pointer;
 }
 
+input {
+  border-radius: 4px;
+  border: solid 1px var(--white-three);
+  background-color: var(--white-two);
+  padding: 0.75rem;
+  width: 100%;
+  outline-color: transparent;
+  transition: all 0.25s ease-in-out;
+}
+
+input:focus {
+  outline-color: var(--azure-two);
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
@@ -51,11 +70,11 @@ button {
 
 .navigation {
   display: flex;
+  gap: 3rem;
   align-items: center;
 }
 
 .brand {
-  margin: 0.375rem 2.938rem 0.125rem 0;
   font-family: Montserrat, sans-serif;
   font-size: 1.875rem;
   font-weight: bold;
@@ -67,13 +86,9 @@ button {
 }
 
 .nav-link {
-  margin: 1.125rem 2.563rem 0.688rem 0;
   font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
   font-size: 0.813rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
   letter-spacing: 1.9px;
   color: var(--black-two);
 }
@@ -149,11 +164,45 @@ button {
   margin-top: 1rem;
 }
 
+.form button {
+  color: var(--white-two);
+  width: 100%;
+  text-transform: uppercase;
+  padding: 0.73rem 1.188rem;
+  border-radius: 3px;
+  background-color: var(--azure);
+  transition: all 0.25s ease-in-out;
+}
+
 .book .action-btns button {
   padding: 0.5rem 0;
   font-size: 0.875rem;
   font-weight: 300;
   color: var(--azure-two);
+  transition: all 0.25s ease-in-out;
+}
+
+.book .infos button {
+  color: var(--white-two);
+  padding: 0.438rem 1.188rem;
+  border-radius: 3px;
+  margin-top: 1.43rem;
+  background-color: var(--azure);
+  transition: all 0.25s ease-in-out;
+}
+
+.form button:hover {
+  background-color: var(--azure-two);
+  box-shadow: 0 0 2px var(--azure);
+}
+
+.book .infos button:hover {
+  background-color: var(--azure-two);
+  box-shadow: 8px 8px 24px var(--white-three);
+}
+
+.book .action-btns button:hover {
+  color: var(--azure);
 }
 
 .vertical-separator {
@@ -198,16 +247,33 @@ button {
   padding-top: 0.44rem;
 }
 
-.book .infos button {
-  color: var(--white-two);
-  padding: 0.438rem 1.188rem;
-  border-radius: 3px;
-  margin-top: 1.43rem;
-  background-color: var(--azure);
-  transition: all 0.25s ease-in-out;
+.book .right .separator {
+  width: 0.125rem;
+  height: 4.375rem;
+  background-color: var(--white-three);
 }
 
-.book .infos button:hover {
-  background-color: var(--azure-two);
-  box-shadow: 8px 8px 24px var(--white-three);
+.book-form {
+  padding: 1rem 0;
+  border-top: 1px solid var(--white-three);
+}
+
+.form-title {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: -0.18px;
+  opacity: 0.5;
+  color: var(--black-two);
+}
+
+.form {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.form div {
+  flex: 1;
 }
